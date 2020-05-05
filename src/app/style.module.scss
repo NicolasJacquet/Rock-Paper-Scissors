@@ -1,5 +1,7 @@
 @import-normalize;
 
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&display=swap");
+
 html {
     box-sizing: border-box;
 }
@@ -19,7 +21,7 @@ body {
 body {
     font-size: 14px;
     margin: 0;
-    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    font-family: "Barlow Semi Condensed", "Roboto", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     display: flex;
@@ -48,4 +50,5 @@ body {
 .content {
     max-width: 800px;
     width: 100%;
+    padding: 20px;
 }

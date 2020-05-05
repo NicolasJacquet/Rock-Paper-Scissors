@@ -1,11 +1,16 @@
 // @flow
 import React from "react";
-import css from "./app.module.scss";
+import Header from "./../components/header";
+import Rules from "./../components/rules";
+import css from "./style.module.scss";
 
 const App = () => {
     return (
         <div className={css.app}>
-            <div className={css.content}>Rock, Paper, Scissors</div>
+            <div className={css.content}>
+                <Header />
+                <Rules />
+            </div>
         </div>
     );
 };
