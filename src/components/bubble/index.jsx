@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import * as React from "react";
 import classnames from "classnames";
 import { ATTACKS } from "./../../utils/attacks.js";
 import css from "./style.module.scss";
@@ -9,9 +9,7 @@ type Props = $ReadOnly<{
     attack: $Keys<typeof ATTACKS>,
 }>;
 
-const Bubble = (props: Props) => {
-    const { small, attack } = props;
-
+const Bubble = ({ small, attack }: Props): React.Node => {
     return (
         <div
             className={classnames(css.container, css[attack], {

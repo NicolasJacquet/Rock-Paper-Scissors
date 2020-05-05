@@ -1,0 +1,59 @@
+@keyframes clickEffect {
+    50% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    99% {
+        transform: scale(0.001);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0.001);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleEffect {
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.button {
+    margin: 10px 40px;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    outline: 0;
+    position: relative;
+    transition: transform ease-in-out 0.3s;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
+    }
+
+    &:before {
+        content: "";
+        background-color: #ffffff;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: scale(0.001, 0.001);
+    }
+
+    &.clicked {
+        animation: scaleEffect 0.3s ease-out;
+
+        &:before {
+            animation: clickEffect 0.8s ease-out;
+        }
+    }
+}
