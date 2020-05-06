@@ -37,6 +37,7 @@
     }
 
     &:before {
+        z-index: 100;
         content: "";
         background-color: #ffffff;
         border-radius: 50%;
