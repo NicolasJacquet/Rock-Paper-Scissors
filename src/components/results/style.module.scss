@@ -1,0 +1,103 @@
+@keyframes decorationAnimation {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    80% {
+        transform: scale(1.2);
+        opacity: 0.1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.1;
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 940px;
+    margin: auto;
+    padding: 90px 0;
+}
+
+.attackItem {
+    text-align: center;
+    position: relative;
+
+    &:before {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 80%;
+        height: 80%;
+        left: 10%;
+        top: 10%;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 100%;
+    }
+
+    &:after {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 170%;
+        height: 170%;
+        left: -35%;
+        top: -35%;
+        background: #203768;
+        border-radius: 100%;
+        box-shadow: 0 0 2px 50px #4871ca, inset 0 0 0 50px #2d4c8e;
+        opacity: 0;
+    }
+
+    &.winner {
+        &:after {
+            animation: decorationAnimation 0.8s ease-out forwards;
+            //animation-delay: 800ms;
+        }
+    }
+}
+
+.title {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 50px);
+    width: 100%;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.actionContainer {
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 100;
+}
+
+.text {
+    margin: 0 0 20px;
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+}
+
+.btn {
+    border: 0;
+    background: #ffffff;
+    font-weight: 400;
+    color: #182547;
+    cursor: pointer;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    border-radius: 8px;
+    padding: 14px 44px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    transition: transform ease-in-out 0.3s;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
+    }
+}

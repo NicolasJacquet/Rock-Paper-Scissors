@@ -27,7 +27,7 @@ const Rules = () => {
                     RULES
                 </button>
             </div>
-            <Fade when={modalIsOpen}>
+            <Fade when={modalIsOpen} unmountOnExit>
                 {modalIsOpen && (
                     <div className={css.modal}>
                         <Fade top duration={700} delay={300}>

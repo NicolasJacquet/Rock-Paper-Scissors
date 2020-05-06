@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import classnames from "classnames";
-import { ATTACKS } from "./../../utils/attacks.js";
+import ATTACKS from "./../../utils/attacks.js";
 import css from "./style.module.scss";
 
 type Props = $ReadOnly<{

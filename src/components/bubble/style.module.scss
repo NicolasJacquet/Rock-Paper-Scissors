@@ -2,6 +2,8 @@
 
 .container {
     border-radius: 100%;
+    position: relative;
+    z-index: 10;
 
     @each $name, $color in $attacks {
         &.#{$name} {

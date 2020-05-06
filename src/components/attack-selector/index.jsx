@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import Bubble from "./../bubble";
-import { ATTACKS } from "./../../utils/attacks.js";
+import ATTACKS from "./../../utils/attacks.js";
 import { type OnSelectAttackType } from "./../game";
 import AttackButton from "./../attack-button";
 import css from "./style.module.scss";
