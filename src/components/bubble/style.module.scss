@@ -12,11 +12,11 @@
     }
 
     // Default size
-    width: 300px;
-    height: 300px;
-    padding: 30px;
-    box-shadow: inset 0 -12px 1px rgba(0, 0, 0, 0.3),
-        0 6px 6px rgba(0, 0, 0, 0.3);
+    width: 120px;
+    height: 120px;
+    padding: 12px;
+    box-shadow: inset 0 -5px 1px rgba(0, 0, 0, 0.3),
+        0 2px 2px rgba(0, 0, 0, 0.3);
 
     .content {
         width: 100%;
@@ -28,24 +28,64 @@
         align-items: center;
 
         // Default size
-        box-shadow: inset 0 10px 1px #b8bdd3;
+        box-shadow: inset 0 4px 1px #b8bdd3;
 
         .icon {
             display: block;
             width: 50%;
         }
     }
+}
 
-    &.small {
-        width: 200px;
-        height: 200px;
-        padding: 20px;
-
-        box-shadow: inset 0 -6px 1px rgba(0, 0, 0, 0.3),
+@media (min-width: 480px) {
+    .container {
+        width: 180px;
+        height: 180px;
+        padding: 18px;
+        box-shadow: inset 0 -7px 1px rgba(0, 0, 0, 0.3),
             0 4px 4px rgba(0, 0, 0, 0.3);
 
         .content {
-            box-shadow: inset 0 6px 1px #b8bdd3;
+            box-shadow: inset 0 7px 1px #b8bdd3;
+        }
+
+        &.small {
+            width: 150px;
+            height: 150px;
+            padding: 15px;
+            box-shadow: inset 0 -6px 1px rgba(0, 0, 0, 0.3),
+                0 3px 3px rgba(0, 0, 0, 0.3);
+
+            .content {
+                box-shadow: inset 0 5px 1px #b8bdd3;
+            }
+        }
+    }
+}
+
+@media (min-width: 640px) {
+    .container {
+        width: 300px;
+        height: 300px;
+        padding: 30px;
+        box-shadow: inset 0 -12px 1px rgba(0, 0, 0, 0.3),
+            0 6px 6px rgba(0, 0, 0, 0.3);
+
+        .content {
+            box-shadow: inset 0 10px 1px #b8bdd3;
+        }
+
+        &.small {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+
+            box-shadow: inset 0 -6px 1px rgba(0, 0, 0, 0.3),
+                0 4px 4px rgba(0, 0, 0, 0.3);
+
+            .content {
+                box-shadow: inset 0 6px 1px #b8bdd3;
+            }
         }
     }
 }

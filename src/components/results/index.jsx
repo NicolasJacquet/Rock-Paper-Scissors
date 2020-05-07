@@ -62,6 +62,12 @@ const Results = ({ onRestart }: Props): React.Node => {
                 attack={userAttack}
                 title='YOU PICKED'
             />
+            <Item
+                isWinner={result < 0}
+                isDraw={result === 0}
+                attack={computerAttack}
+                title='THE HOUSE PICKED'
+            />
             <Zoom delay={400}>
                 <div className={css.actionContainer}>
                     <p className={css.text}>{text}</p>
@@ -70,12 +76,6 @@ const Results = ({ onRestart }: Props): React.Node => {
                     </button>
                 </div>
             </Zoom>
-            <Item
-                isWinner={result < 0}
-                isDraw={result === 0}
-                attack={userAttack}
-                title='THE HOUSE PICKED'
-            />
         </div>
     );
 };

@@ -5,7 +5,12 @@
     align-items: center;
     background: url("../../assets/images/bg-triangle.svg") no-repeat;
     background-position: center;
+    background-size: 50%;
     max-width: 800px;
     width: 100%;
     margin: auto;
+
+    @media (min-width: 640px) {
+        background-size: auto;
+    }
 }
