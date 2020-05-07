@@ -18,7 +18,7 @@ type State = {|
 |};
 
 const initialState: State = {
-    score: 0,
+    score: JSON.parse(window.localStorage.getItem("score")) || 0,
 };
 
 const gameReducer = (state: State, action: Action) => {

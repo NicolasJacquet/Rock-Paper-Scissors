@@ -15,6 +15,11 @@ const GameDispatchContext = React.createContext<Dispatch | typeof undefined>(
 
 const GameProvider = ({ children }: StateProviderProps) => {
     const [state, dispatch] = React.useReducer(gameReducer, initialState);
+    const { score } = state;
+
+    React.useEffect(() => {
+        window.localStorage.setItem("score", JSON.stringify(score));
+    }, [score]);
 
     return (
         <GameStateContext.Provider value={state}>
