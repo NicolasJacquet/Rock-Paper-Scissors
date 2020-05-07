@@ -11,7 +11,7 @@ import css from "./style.module.scss";
 type Props = $ReadOnly<{
     computerAttack: ?$Keys<typeof ATTACKS>,
     userAttack: ?$Keys<typeof ATTACKS>,
-    gameResult: string,
+    gameResult: number,
     onRestart: () => void,
 }>;
 
@@ -26,25 +26,21 @@ const Results = ({
     }
 
     const text =
-        gameResult === "win"
-            ? "YOU WIN"
-            : gameResult === "lose"
-            ? "YOU LOSE"
-            : "DRAW";
+        gameResult > 0 ? "YOU WIN" : gameResult < 0 ? "YOU LOSE" : "DRAW";
 
     return (
         <div className={css.container}>
             <div
                 className={classnames(css.attackItem, {
-                    [css.winner]: gameResult === "win",
+                    [css.winner]: gameResult > 0,
                 })}
             >
                 <h2 className={css.title}>YOU PICKED</h2>
-                {gameResult === "win" ? (
+                {gameResult > 0 ? (
                     <Bounce>
                         <Bubble attack={userAttack} />
                     </Bounce>
-                ) : gameResult === "draw" ? (
+                ) : gameResult === 0 ? (
                     <Shake>
                         <Bubble attack={userAttack} />
                     </Shake>
@@ -62,15 +58,15 @@ const Results = ({
             </Zoom>
             <div
                 className={classnames(css.attackItem, {
-                    [css.winner]: gameResult === "lose",
+                    [css.winner]: gameResult < 0,
                 })}
             >
                 <h2 className={css.title}>THE HOUSE PICKED</h2>
-                {gameResult === "lose" ? (
+                {gameResult < 0 ? (
                     <Bounce>
                         <Bubble attack={computerAttack} />
                     </Bounce>
-                ) : gameResult === "draw" ? (
+                ) : gameResult === 0 ? (
                     <Shake>
                         <Bubble attack={computerAttack} />
                     </Shake>

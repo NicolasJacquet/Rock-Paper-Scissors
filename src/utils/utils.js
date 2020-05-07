@@ -11,11 +11,11 @@ export const getRandomAttack = (): $Keys<typeof ATTACKS> => {
 export const getGameResult: (
     userAttack: $Keys<typeof ATTACKS>,
     computerAttack: $Keys<typeof ATTACKS>
-) => string = (userAttack, computerAttack) => {
+) => number = (userAttack, computerAttack) => {
     if (userAttack === computerAttack) {
-        return "draw";
+        return 0;
     } else if (ATTACKS[userAttack].beats === computerAttack) {
-        return "win";
+        return 1;
     }
-    return "lose";
+    return -1;
 };

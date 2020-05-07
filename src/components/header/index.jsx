@@ -1,10 +1,10 @@
 // @flow
-import React from "react";
+import * as React from "react";
 import logo from "./../../assets/images/logo.svg";
 import ScoreBoard from "./../score-board";
 import css from "./style.module.scss";
 
-const Header = () => {
+const Header = (): React.Node => {
     return (
         <header className={css.container}>
             <h1 className={css.title}>
