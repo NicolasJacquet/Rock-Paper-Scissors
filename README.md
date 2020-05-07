@@ -1,6 +1,6 @@
 # Coding challenge
 
-This project is a coding challenge from [frontendmentor](https://www.frontendmentor.io/challenges/social-media-dashboard-with-theme-switcher-6oY8ozp_H)
+This project is a coding challenge from [frontendmentor](https://www.frontendmentor.io/)
 
 ---
 
