@@ -6,7 +6,7 @@ const Credit = () => {
     return (
         <div className={css.footerContainer}>
             <a
-                href='https://github.com/NicolasJacquet/'
+                href='https://github.com/NicolasJacquet/Rock-Paper-Scissors'
                 target='_blank'
                 rel='noopener noreferrer'
                 className={css.link}

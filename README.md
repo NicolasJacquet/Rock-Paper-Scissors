@@ -12,6 +12,6 @@ This project is a coding challenge from [frontendmentor](https://www.frontendmen
 
 ---
 
-Online preview available [here]()
+Online preview available [here](https://rock-paper-scissors.nicolasjacquet.now.sh/)
 
 ![Design preview for the Social media dashboard with theme switcher coding challenge](./design/desktop-preview.jpg)
