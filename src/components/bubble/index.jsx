@@ -1,12 +1,12 @@
 // @flow
 import * as React from "react";
 import classnames from "classnames";
-import ATTACKS from "./../../utils/attacks.js";
+import ATTACKS, { type Attack } from "./../../utils/attacks.js";
 import css from "./style.module.scss";
 
 type Props = $ReadOnly<{
     small?: boolean,
-    attack: $Keys<typeof ATTACKS>,
+    attack: Attack,
 }>;
 
 const Bubble = ({ small, attack }: Props): React.Node => {

@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import { type Action } from "./game-action-types";
-import gameReducer, { type State } from "./game-reducer";
+import { gameReducer, initialState, type State } from "./game-reducer";
 
 type Dispatch = (action: Action) => void;
 type StateProviderProps = { children: React.Node };
@@ -14,7 +14,7 @@ const GameDispatchContext = React.createContext<Dispatch | typeof undefined>(
 );
 
 const GameProvider = ({ children }: StateProviderProps) => {
-    const [state, dispatch] = React.useReducer(gameReducer, { score: 0 });
+    const [state, dispatch] = React.useReducer(gameReducer, initialState);
 
     return (
         <GameStateContext.Provider value={state}>

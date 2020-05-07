@@ -21,4 +21,7 @@ const ATTACKS = Object.freeze({
     },
 });
 
+type Attack = $Keys<typeof ATTACKS>;
+
+export type { Attack };
 export default ATTACKS;

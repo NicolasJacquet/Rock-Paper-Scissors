@@ -1,6 +1,6 @@
-import ATTACKS from "./attacks.js";
+import ATTACKS, { type Attack } from "./attacks.js";
 
-export const getRandomAttack = (): $Keys<typeof ATTACKS> => {
+export const getRandomAttack = (): Attack => {
     const attacks = Object.keys(ATTACKS);
     const min = 0;
     const max = attacks.length - 1;
@@ -9,8 +9,8 @@ export const getRandomAttack = (): $Keys<typeof ATTACKS> => {
 };
 
 export const getGameResult: (
-    userAttack: $Keys<typeof ATTACKS>,
-    computerAttack: $Keys<typeof ATTACKS>
+    userAttack: Attack,
+    computerAttack: Attack
 ) => number = (userAttack, computerAttack) => {
     if (userAttack === computerAttack) {
         return 0;

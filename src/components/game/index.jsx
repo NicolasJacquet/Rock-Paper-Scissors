@@ -2,32 +2,39 @@
 import * as React from "react";
 import Fade from "react-reveal/Fade";
 import { useGame } from "./../../context/game-context";
-import { INCREMENT, DECREMENT } from "./../../context/game-action-types.js";
-import ATTACKS from "./../../utils/attacks.js";
+import {
+    INCREMENT,
+    DECREMENT,
+    SET_RESULT,
+    SET_COMPUTER_ATTACK,
+    SET_USER_ATTACK,
+    RESTART_GAME,
+} from "./../../context/game-action-types.js";
+import { type Attack } from "./../../utils/attacks.js";
 import { getGameResult, getRandomAttack } from "./../../utils/utils.js";
 import AttackSelector from "./../attack-selector";
 import Results from "./../results";
 import css from "./style.module.scss";
 
-export type OnSelectAttackType = (attack: $Keys<typeof ATTACKS>) => void;
-
 const Game = (): React.Node => {
-    const { state, dispatch } = useGame();
-    const [userAttack, setUserAttack] = React.useState(null);
-    const [computerAttack, setComputerAttack] = React.useState(null);
+    const {
+        state: { score, userAttack },
+        dispatch,
+    } = useGame();
     const [showResult, setShowResult] = React.useState(false);
-    const [gameResult, setGameResult] = React.useState(0);
 
-    const onSelectAttack: OnSelectAttackType = (attack) => {
-        const computerAttack = getRandomAttack();
-        const result = getGameResult(attack, computerAttack);
-        setUserAttack(attack);
-        setComputerAttack(computerAttack);
-        setGameResult(result);
+    const onSelectAttack = (attack: Attack) => {
+        const computerAttack: Attack = getRandomAttack();
+        const result: number = getGameResult(attack, computerAttack);
+
+        dispatch({ type: SET_USER_ATTACK, payload: attack });
+        dispatch({ type: SET_COMPUTER_ATTACK, payload: computerAttack });
+        dispatch({ type: SET_RESULT, payload: result });
+
         setTimeout(() => {
             if (result > 0) {
                 dispatch({ type: INCREMENT });
-            } else if (result < 0 && state.score > 0) {
+            } else if (result < 0 && score > 0) {
                 dispatch({ type: DECREMENT });
             }
             setShowResult(true);
@@ -37,8 +44,7 @@ const Game = (): React.Node => {
     const onRestart = () => {
         setShowResult(false);
         setTimeout(() => {
-            setUserAttack(null);
-            setComputerAttack(null);
+            dispatch({ type: RESTART_GAME });
         }, 700);
     };
 
@@ -50,14 +56,7 @@ const Game = (): React.Node => {
                 )}
             </Fade>
             <Fade unmountOnExit when={showResult} duration={500}>
-                {showResult && (
-                    <Results
-                        computerAttack={computerAttack}
-                        userAttack={userAttack}
-                        gameResult={gameResult}
-                        onRestart={onRestart}
-                    />
-                )}
+                {showResult && <Results onRestart={onRestart} />}
             </Fade>
         </div>
     );
