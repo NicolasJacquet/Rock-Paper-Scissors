@@ -4,6 +4,7 @@ import { GameProvider } from "./../context/game-context";
 import Header from "./../components/header";
 import Rules from "./../components/rules";
 import Game from "./../components/game";
+import Credit from "./../components/credit";
 import css from "./style.module.scss";
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
                     <Header />
                     <Game />
                     <Rules />
+                    <Credit />
                 </div>
             </div>
         </GameProvider>

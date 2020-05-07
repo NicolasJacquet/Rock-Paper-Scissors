@@ -1,0 +1,23 @@
+.footerContainer {
+    display: flex;
+    padding-top: 30px;
+}
+
+.link {
+    color: #ffffff;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+        text-decoration: none;
+    }
+}
+
+.icon {
+    margin-left: 10px;
+    opacity: 0.4;
+}
